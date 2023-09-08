@@ -27,7 +27,7 @@ All submissions are created via markdown files and uses the same template and sy
 3. Clone this new repository into your desktop environment
 
    ```
-   git clone https://github.com/YOUR-USERNAME/mdx-submissions21
+   git clone https://github.com/YOUR-USERNAME/sdx-submissions
    ```
 
 4. Create a branch (the branch name should be author names separated with dashes)
