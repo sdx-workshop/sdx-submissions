@@ -1,24 +1,18 @@
-# MDX Workshop Submissions
-⏰ _Abstract Deadline:_ ~~October 22th 2021~~ __Deadline Extension: October 28th 2021 (Anywhere on Earth)__
+# SDX Workshop Submissions
 
-The MDX21 workshop is a satellite event at [ISMIR 2021](https://ismir2021.ismir.net/). We will feature invited talks as well as presentations and posters from submitted extended abstracts. The contents of the extended abstracts can be descriptions of your submission to the MDX21 challenge as well as other topics around audio source separation that you would like to share with the community.
+⏰ _Abstract Deadline:_ October 2nd 2023 (Anywhere on Earth)__
 
-This is the submission repository for the [Music Demixing Workshop 2021](https://mdx-workshop.github.io). The submission system is based on Github pull requests and is fully transparent and open for both, authors and reviewers.
+The SDX23 workshop is a satellite event at [ISMIR 2023](https://ismir2023.ismir.net/). We will feature invited talks as well as presentations and posters from submitted extended abstracts. The contents of the extended abstracts can be descriptions of your submission to the SDX23 challenge as well as other topics around audio source separation that you would like to share with the community.
 
-Extended abstracts are written in markdown and following the [MDX workshop template](https://github.com/mdx-workshop/mdx-submissions21) (originally forked from the [JOSS](https://joss.theoj.org/) paper system).
+This is the submission repository for the [Sound Demixing Workshop 2023](https://sdx-workshop.github.io). The submission system is based on Github pull requests and is fully transparent and open for both, authors and reviewers.
 
-There is no page limit on the papers, but please make sure that the abstract itself is within 250 words.
-In case you have any question, please open an [issue in this repository](https://github.com/mdx-workshop/mdx-submissions21/issues).
+In case you have any question, please open an [issue in this repository](https://github.com/sdx-workshop/sdx-submissions/issues).
 
-### Submission types
+### Submissions
 
-We accept three kinds of submissions:
+We encourage participants to submit a short abstract. Submissions are markdown abstracts with a short extended abstract to be submitted after acceptance. Please make sure that the initial abstract itself is within __250 words__.
 
-- **Posters.** We encourage everyone who participated in the Music Demixing Challenge to submit a poster. After a minimal prescreening, you would have the opportunity to present your work in the online virtual space for the conference. Pick the `POSTERS` category, and submit a title + short abstract.
-
-- **Long presentations** (20min+questions), during which you can present a recent research or some topic you think could be of interest to the community. Pick the `LONG TALK` category, and submit a title + extended abstract for your talk.
-
-- **Discussions** (30min), during which you propose to initiate and moderate a group discussion about a particular topic after a 5min introduction. The objective is to stimulate new ideas and collaborations on music separations. Pick the `DISCUSSIONS` category, and submit a title + extended abstract that describes discussion topics.
+After a reviewing, you would have the opportunity to present your work in virtually or on-site at the workshop.
 
 ### How to write an article
 
@@ -33,27 +27,25 @@ All submissions are created via markdown files and uses the same template and sy
 3. Clone this new repository into your desktop environment
 
    ```
-   $ git clone https://github.com/YOUR-USERNAME/mdx-submissions21
+   git clone https://github.com/YOUR-USERNAME/mdx-submissions21
    ```
 
 4. Create a branch (the branch name should be author names separated with dashes)
 
    ```
-   $ git checkout -b AUTHOR1-AUTHOR2
+   git checkout -b AUTHOR1-AUTHOR2
    ```
-
 
 5. Add your article and commit your changes:
 
    ```
-   $ git commit -a -m "Some comment"
+   git commit -a -m "Some comment"
    ```
-
 
 6. [Push](https://help.github.com/articles/pushing-to-a-remote/) to github
 
    ```
-   $ git push origin AUTHOR1-AUTHOR2
+   git push origin AUTHOR1-AUTHOR2
    ```
 
 7. Issue a [pull request](https://help.github.com/articles/using-pull-requests/) (PR) with title containing author(s) name and follow the template that will appear once you opened the pull request.
