@@ -3,7 +3,7 @@
 
 **AUTHOR**
 
-Dear mdx workshop committee,
+Dear SDX workshop committee,
 
 I request a review for the following SDX submission (Abstract: 250 Words+one page pdf)_
 
