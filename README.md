@@ -22,7 +22,7 @@ All submissions are created via markdown files and uses the same template and sy
 
 1. Create a [github](https://github.com) account
 
-2. [Fork](https://help.github.com/articles/fork-a-repo/) the [MDX workshop submission](https://github.com/mdx-workshop/mdx-submissions21) repository
+2. [Fork](https://help.github.com/articles/fork-a-repo/) the [SDX workshop submission](https://github.com/sdx-workshop/sdx-submissions) repository
 
 3. Clone this new repository into your desktop environment
 
