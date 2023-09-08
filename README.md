@@ -1,6 +1,6 @@
 # SDX Workshop Submissions
 
-⏰ _Abstract Deadline:_ October 2nd 2023 (Anywhere on Earth)__
+⏰ _Abstract Deadline: __October 2nd 2023 (Anywhere on Earth)__
 
 The SDX23 workshop is a satellite event at [ISMIR 2023](https://ismir2023.ismir.net/). We will feature invited talks as well as presentations and posters from submitted extended abstracts. The contents of the extended abstracts can be descriptions of your submission to the SDX23 challenge as well as other topics around audio source separation that you would like to share with the community.
 
