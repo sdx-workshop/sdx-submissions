@@ -12,7 +12,7 @@ authors:
   - name: Author with no affiliation^[corresponding author]
     affiliation: 3
 affiliations:
- - name: Lyman Spitzer, Jr. Fellow, Princeton University
+ - name: Fabian-Robert Stöter, Audioshake
    index: 1
  - name: Institution Name
    index: 2
