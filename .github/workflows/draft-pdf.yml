@@ -8,7 +8,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build draft PDF
-        uses: mdx-workshop/openjournals-draft-action@master
+        uses: sdx-workshop/openjournals-draft-action@master
         with:
           journal: mdx
           # This should be the path to the paper within your repo.
