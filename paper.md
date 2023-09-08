@@ -1,5 +1,5 @@
 ---
-title: 'Music separation is all you need'
+title: 'Separation using ChatGPT'
 tags:
   - separation
   - u-net
