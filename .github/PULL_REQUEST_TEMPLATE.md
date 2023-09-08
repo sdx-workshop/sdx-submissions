@@ -14,7 +14,15 @@ I request a review for the following SDX submission (Abstract: 250 Words+one pag
 
 **Author(s):**  
 
-**Workshop participance***
+**Challenge submission** (weather this submission is related to an sdx challenge entry):
+
+* [ ] MDX Leaderboard A
+* [ ] MDX Leaderboard B
+* [ ] MDX Leaderboard C
+* [ ] CDX Leaderboard A
+* [ ] CDX Leaderboard B
+
+**Workshop participance**
 
 * [ ] Virtual
 * [ ] On-Site
