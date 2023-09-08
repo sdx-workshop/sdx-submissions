@@ -4,7 +4,7 @@ tags:
   - separation
   - u-net
 authors:
-  - name: Adrian M. Price-Whelan^[co-first author] # note this makes a footnote saying 'co-first author'
+  - name: Fabian-Robert Stöter^[co-first author] # note this makes a footnote saying 'co-first author'
     orcid: 0000-0003-0872-7098
     affiliation: "1, 2" # (Multiple affiliations must be quoted)
   - name: Author Without ORCID^[co-first author] # note this makes a footnote saying 'co-first author'
@@ -12,7 +12,7 @@ authors:
   - name: Author with no affiliation^[corresponding author]
     affiliation: 3
 affiliations:
- - name: Fabian-Robert Stöter, Audioshake
+ - name: Audioshake
    index: 1
  - name: Institution Name
    index: 2
