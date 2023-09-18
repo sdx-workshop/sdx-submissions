@@ -10,7 +10,7 @@ jobs:
       - name: Build draft PDF
         uses: sdx-workshop/openjournals-draft-action@master
         with:
-          journal: mdx
+          journal: sdx
           # This should be the path to the paper within your repo.
           paper-path: paper.md
       - name: Upload
