@@ -2,7 +2,7 @@
 
 ⏰ _Abstract Deadline: __October 15th 2023 (Anywhere on Earth)__
 
-The SDX23 workshop is a satellite event at [ISMIR 2023](https://ismir2023.ismir.net/). We will feature invited talks as well as presentations and posters from submitted extended abstracts. The contents of the extended abstracts can be descriptions of your submission to the SDX23 challenge as well as other topics around audio source separation that you would like to share with the community.
+The SDX23 workshop is a satellite event at [ISMIR 2023](https://ismir2023.ismir.net/). We will feature invited talks as well as presentations and posters from submitted extended abstracts. The contents of the abstracts can be descriptions of your submission to the SDX23 challenge as well as other topics around audio source separation that you would like to share with the community.
 
 This is the submission repository for the [Sound Demixing Workshop 2023](https://sdx-workshop.github.io). The submission system is based on Github pull requests and is fully transparent and open for both, authors and reviewers.
 
@@ -10,7 +10,7 @@ In case you have any question, please open an [issue in this repository](https:/
 
 ### Submissions
 
-We encourage participants to submit a short abstract. Submissions are markdown abstracts with a short extended abstract to be submitted after acceptance. Please make sure that the initial abstract itself is within __250 words__.
+We encourage participants to submit a short abstract. Submissions are markdown abstracts. Please make sure that the abstract is within __250 words__.
 
 After a reviewing, you would have the opportunity to present your work in virtually or on-site at the workshop.
 
