@@ -1,33 +1,31 @@
 ---
-title: 'Separation using ChatGPT'
+title: 'BS-RoFormer: The SAMI-ByteDance Music Source Separation System for Sound Demixing Challenge 2023'
 tags:
-  - separation
-  - u-net
+  - music source separation
+  - transformer
+  - rotary position embedding
+  - band-split
 authors:
-  - name: Fabian-Robert Stoter^[co-first author] # note this makes a footnote saying 'co-first author'
-    orcid: 0000-0003-0872-7098
-    affiliation: "1, 2" # (Multiple affiliations must be quoted)
-  - name: Author Without ORCID^[co-first author] # note this makes a footnote saying 'co-first author'
-    affiliation: 2
-  - name: Author with no affiliation^[corresponding author]
-    affiliation: 3
+  - name: Ju-CHiang Wang^[co-first author]
+    orcid: 0009-0002-8265-4229
+    affiliation: 1 
+  - name: Wei-Tsung Lu^[co-first author] # note this makes a footnote saying 'co-first author'
+    affiliation: 1
+  - name: Qiuqiang Kong
+    orcid: 0000-0003-2864-0475
+    affiliation: 1
+  - name: Yun-Ning Hung
+    orcid: 0000-0002-7242-6903
+    affiliation: 1
 affiliations:
- - name: Audioshake
+ - name: SAMI, ByteDance Inc.
    index: 1
- - name: Institution Name
-   index: 2
- - name: Independent Researcher
-   index: 3
-date: 10 September 2023
+date: 26 September 2023
 bibliography: paper.bib
-arxiv-doi: 10.21105/joss.01667
+arxiv-doi: 10.48550/arXiv.2309.02612
 ---
 
 # Abstract
 
-The abstract should be around 250 words long as usual, and should be provided
-for submissions of all categories: posters, long talks and discussions.
-
-* Please briefly describe the particular points your submission focuses on and/or the
-problems it aims to solve.
-* For all categories except discussions, please also briefly summarize the contributions.
+Music source separation (MSS) aims to separate a music recording into multiple musically distinct stems, such as vocals, bass, drums, and other.
+Recently, multi-band frequency-domain approaches such as Band-Split Recurrent Neural Networks (BSRNN) have been explored and achieved very promising results. In this abstract, we introduce a novel approach based on Band-Split RoPE Transformer (termed as \emph{BS-RoFormer}) \cite{lu2023music}. Similar to BSRNN, BS-RoFormer relies on a band-split module to project the input complex spectrogram into subband-level representations. Then, instead of RNNs, we arrange a stack of hierarchical Transformers to model the inner-band as well as inter-band sequences for multi-band mask estimation. To improve the training efficacy, we use the Rotary Position Embedding (RoPE). The BS-RoFormer system trained on MUSDB18HQ and 500 extra songs ranked the first place in the standard MSS track (Leaderboard C) of Sound Demixing Challenge (SDX'23). It outperformed the second best by a large margin in SDR. Benchmarking our SDX'23 system on MUSDB18HQ shows state-of-the-art results, with an average SDR of 11.99 dB. In ablation study, we demonstrate that a smaller version of BS-RoFormer without extra training data is also competitive, achieving an average SDR of 9.92 dB on MUSDB18HQ.
