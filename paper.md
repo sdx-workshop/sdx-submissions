@@ -1,8 +1,8 @@
 ---
-title: 'Separation using ChatGPT'
+title: 'Music Source Separation for Causal Scenarios'
 tags:
   - separation
-  - u-net
+  - causal
 authors:
   - name: Gerardo Roa Dabike^[corresponding author] # note this makes a footnote saying 'co-first author'
     orcid: 0000-0003-0872-7098
