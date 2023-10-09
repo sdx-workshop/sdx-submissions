@@ -1,5 +1,5 @@
 ---
-title: 'Music Source Separation for Causal Scenarios'
+title: 'The need for causal, low-latency sound demixing and remixing to improve accessibility'
 tags:
   - separation
   - causal
@@ -53,18 +53,22 @@ arxiv-doi:
 
 # Abstract
 
-Music source separation (MSS) is the task of separating a music mixture into individual sources. 
-Motivated by various MSS benchmarks, several Deep Neural Network (DNN) systems have been proposed, leading to impressive results [rouard2023hybrid,kim2023sound]. 
-MUSDB18 [musdb18-hq] is perhaps the most popular of these benchmarks, involving the separation of instruments, vocals, bass, drums, and the rest from a Pop/Rock song. 
-These systems tend to focus on non-causal applications, such as vocal separation for karaoke applications, 
-instrument separation to facilitate music transcription, and the level rebalancing of instruments in post-production. 
-However, there are scenarios where music needs to be processed in real-time, making existing systems invalid. 
-Applications like instrument isolation for amateur music performances or 
-intelligent remixes in hearing aids for live music listening setups require causal systems that can operate in real-time and with low latency.
-Therefore, we are in need of the music separation community to start considering both causal and non-causal scenarios, adapting current and new non-causal systems to causal scenarios
-
-
-
+Soundtracks and music sound different to those with hearing loss. 
+Dialogue and lyrics can be difficult to pick-out and the loss of high frequencies make sounds less impactful. 
+The most common treatment for hearing loss is hearing aids. 
+But about 40% of people who could benefit from hearing aids do not use them often enough citing poor perceived performance. 
+Being able to demix sounds on a hearing aid would allow a personalised rebalancing of sounds in a remix to improve audio quality. 
+For soundtracks, you might amplify parts that are important to the narrative, such as the dialogue and key sound effects. 
+For music, the requirements for remixing are still being researched but it might include amplifying the lyrics so these are easier to hear. 
+A challenge is that hearing loss is heterogenious. 
+Furthermore, the tolerence of hearing aid users to distortion artefacts from processing varies. 
+Consequently, it is important any remix is personalised. 
+The Cadenza project is running a series of machine learning challenges to improve the processing of music for those with a hearing loss. 
+Our ICASSP 2024 grand demixing/remix challenge encourages causal and non-causal approaches. 
+Non-causal musical source separation with deep neural networks has achieved impressive results for separating pop/rock into vocals, bass, drums, and other. 
+For hearing aids and live music, a low-latency, causal approaches are needed. 
+Furthermore, hearing aid processing power is limited, which is challenging for very large models. 
+The paper will outline the opportunities and challenges of using source separation to improve accessibility.
 
 
 
