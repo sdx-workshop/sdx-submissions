@@ -1,24 +1,23 @@
 ---
-title: 'Separation using ChatGPT'
+title: 'Duet Singing Voice Separation with Posterior Sampling in Unconditional Diffusion Models'
 tags:
-  - separation
-  - u-net
+  - diffusion models
+  - singing voice separation
+  - inverse problems
 authors:
-  - name: Fabian-Robert Stoter^[co-first author] # note this makes a footnote saying 'co-first author'
-    orcid: 0000-0003-0872-7098
-    affiliation: "1, 2" # (Multiple affiliations must be quoted)
-  - name: Author Without ORCID^[co-first author] # note this makes a footnote saying 'co-first author'
+  - name: Chin-Yun Yu
+    orcid: 0000-0003-3782-2713
+    affiliation: 1
+  - name: Emilian Postolache
     affiliation: 2
-  - name: Author with no affiliation^[corresponding author]
-    affiliation: 3
+  - name: György Fazekas
+    affiliation: 1
 affiliations:
- - name: Audioshake
+ - name: Centre for Digital Music, Queen Mary University of London
    index: 1
- - name: Institution Name
+ - name: Sapienza University of Rome
    index: 2
- - name: Independent Researcher
-   index: 3
-date: 10 September 2023
+date: 9 October 2023
 bibliography: paper.bib
 arxiv-doi: 10.21105/joss.01667
 ---
