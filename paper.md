@@ -14,12 +14,13 @@ authors:
   - name: Rongzhi Gu
     affiliation: 1
 affiliations:
- - name: Tencent AI Lab
+ - name: Tencent AI Lab, Shenzhen, China
    index: 1
- - name: Tsinghua University
+ - name: Tsinghua University, Beijing, China
    index: 2
-date: 9 October 2023
+date: 09 October 2023
 bibliography: paper.bib
+arxiv-doi:
 ---
 
 # Abstract
