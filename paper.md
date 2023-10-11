@@ -1,5 +1,5 @@
 ---
-title: 'One-page Report for Tencent AI Lab's CDX 2023 System'
+title: "One-page Report for Tencent AI Lab's CDX 2023 System"
 tags:
   - source separation
   - BSRNN
