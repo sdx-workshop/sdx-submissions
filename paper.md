@@ -1,33 +1,28 @@
 ---
-title: 'Separation using ChatGPT'
+title: 'Benchmarks and leaderboards for sound demixing tasks'
 tags:
   - separation
-  - u-net
+  - leaderboards
+  - benchmarks
 authors:
-  - name: Fabian-Robert Stoter^[co-first author] # note this makes a footnote saying 'co-first author'
-    orcid: 0000-0003-0872-7098
-    affiliation: "1, 2" # (Multiple affiliations must be quoted)
-  - name: Author Without ORCID^[co-first author] # note this makes a footnote saying 'co-first author'
+  - name: Roman Solovyev^[co-first author] # note this makes a footnote saying 'co-first author'
+    orcid: 0000-0003-0312-452X
+    affiliation: 1
+  - name: Alexander Stempkovskiy
+    affiliation: 1
+  - name: Tatiana Habruseva^[corresponding author]
+    orcid: 0000-0003-3940-8639
     affiliation: 2
-  - name: Author with no affiliation^[corresponding author]
-    affiliation: 3
 affiliations:
- - name: Audioshake
+ - name: Institute for Design Problems in Microelectronics of Russian Academy of Sciences
    index: 1
- - name: Institution Name
-   index: 2
  - name: Independent Researcher
-   index: 3
-date: 10 September 2023
+   index: 2
+date: 09 October 2023
 bibliography: paper.bib
-arxiv-doi: 10.21105/joss.01667
+arxiv-doi: 10.48550/arXiv.2305.07489
 ---
 
 # Abstract
 
-The abstract should be around 250 words long as usual, and should be provided
-for submissions of all categories: posters, long talks and discussions.
-
-* Please briefly describe the particular points your submission focuses on and/or the
-problems it aims to solve.
-* For all categories except discussions, please also briefly summarize the contributions.
+Music demixing is the task of separating different tracks from the given single audio signal into components, such as drums, bass, and vocals from the rest of the accompaniment. Separation of sources is useful for a range of areas, including entertainment and hearing aids. We introduce two new benchmarks for the sound source separation tasks and compare popular models for sound demixing, as well as their ensembles, on these benchmarks. For the models' assessments, we provide the leaderboard \cite{qcheck}, giving a comparison for a range of models. The new benchmark datasets are available for download. We also develop a novel approach for audio separation, based on the ensembling of different models that are suited best for the particular stem. The proposed solution was evaluated in the context of the Music Demixing Challenge 2023 and achieved top results in different tracks of the challenge. The code and the approach are open-sourced on GitHub \cite{ghubmdx}. 
