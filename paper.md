@@ -24,9 +24,10 @@ arxiv-doi: 10.21105/joss.01667
 
 # Abstract
 
-The abstract should be around 250 words long as usual, and should be provided
-for submissions of all categories: posters, long talks and discussions.
-
-* Please briefly describe the particular points your submission focuses on and/or the
-problems it aims to solve.
-* For all categories except discussions, please also briefly summarize the contributions.
+In recent studies, diffusion models have shown promise as priors for solving audio inverse problems, including source separation. 
+These models allow us to sample from the posterior distribution of a target signal given an observed signal by manipulating the diffusion process.
+However, when dealing with audio sources of the same modality, such as duet singing voices, the constraints learnt by the diffusion process may not be sufficient to preserve the identity of the target source, unless additional guidance is provided, such as an initial estimation from a source separation model.
+Tackling this problem will be usefull for separation sources in choir music, or a mixture of multiple instruments with similar timbre, without acquiring large amounts of paired data.
+In this paper, we examine this problem in the context of duet singing voices separation, and propose a method to enforce the identity of the target voice by splitting the mixture into overlapping segments and performing posterior sampling in an autoregressive manner.
+We evalute the proposed method on the MedleyVox dataset with different overlap ratios, and show that the proposed method outperforms the baseline with naive posterior sampling.
+Our source code and the pre-trained model are publicly available on GitHub.
