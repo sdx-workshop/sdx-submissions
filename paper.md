@@ -13,7 +13,7 @@ authors:
   - name: György Fazekas
     affiliation: 1
 affiliations:
- - name: Centre for Digital Music, Queen Mary University of London
+ - name: Queen Mary University of London
    index: 1
  - name: Sapienza University of Rome
    index: 2
