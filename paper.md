@@ -24,7 +24,7 @@ arxiv-doi: 10.21105/joss.01667
 
 # Abstract
 
-In recent studies, diffusion models have shown promise as priors for solving audio inverse problems [@moliner2023solving; @saito2023unsupervised; @yu2023conditioning], including source separation [@mariani2023multi]. 
+In recent studies, diffusion models have shown promise as priors for solving audio inverse problems [@moliner2023solving; @saito2023unsupervised; @yu2023conditioning; @murata2023gibbsddrm], including source separation [@mariani2023multi]. 
 These models allow us to sample from the posterior distribution of a target signal given an observed signal by manipulating the diffusion process.
 However, when separating audio sources of the same modality, such as duet singing voices, the constraints learnt by the diffusion process may not be sufficient to preserve the identity of the target source, unless additional guidance is provided, such as an initial estimation from a source separation model [@hirano2023diffusion].
 Tackling this problem will be usefull for separation sources in choir music, or a mixture of multiple instruments with similar timbre, without acquiring large amounts of paired data.
