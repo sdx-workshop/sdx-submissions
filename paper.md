@@ -1,9 +1,10 @@
 ---
-title: 'Zero-Shot Duet Singing Voice Separation with Diffusion Models'
+title: 'Zero-Shot Duet Singing Voices Separation with Diffusion Models'
 tags:
   - diffusion models
   - singing voice separation
   - inverse problems
+  - zero-shot learning
 authors:
   - name: Chin-Yun Yu
     orcid: 0000-0003-3782-2713
