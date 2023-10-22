@@ -55,32 +55,21 @@ In this paper, we propose to tackle this problem by splitting the mixture into o
 
 # Experiments
 
-| Methods           | Sample Times | SI-SDR | SDR    |
-|:------:           |:------------:|:------:|:------:|
-| AR Sampling w/ TF | 1            | 3.71   | 4.96   |
-| AR sampling w/ TF | 3            |
-| Naive Sampling    | 1            | 2.86   | 4.27   |
-| AR sampling       | 1            | 2.46   | 3.91   |
-| AR sampling       | 3            |
+
+| Methods           | SI-SDRi, 1 | SI-SDRi, 2 | SI-SDRi, 3 |
+|:------:           |:----------:|:----------:|:----------:|
+| AR sampling w/ TF | 3.71       | 9.45       | 11.42      |
+| Naive Sampling    | 2.85       | 3.84       | 6.75       |
+| AR sampling       | 2.46       | 9.64       | 11.09      | 
+
+| Methods           | SDRi, 1 | SDRi, 2 |SDRi, 3 |
+|:------:           |:-------:|:-------:|:-------:|
+| AR sampling w/ TF | 4.83    | 10.18   | 11.99   |
+| Naive Sampling    | 4.14    | 5.02    | 7.73    |
+| AR sampling       | 3.78    | 10.34   | 11.79   |
 
 
 
-
-
-+-------------------+------------+----------+----------+
-| Header 1          | Header 2   | Header 3 | Header 4 |
-|                   |            |          |          |
-+:=================:+:==========:+:========:+:========:+
-| row 1, column 1   | column 2   | column 3 | column 4 |
-+-------------------+------------+----------+----------+
-| row 2             | cells span columns               |
-+-------------------+------------+---------------------+
-| row 3             | cells      | - body              |
-+-------------------+ span rows  | - elements          |
-| row 4             |            | - here              |
-+===================+============+=====================+
-| Footer                                               |
-+===================+============+=====================+
 
 # Conclusion
 
