@@ -57,13 +57,22 @@ In this paper, we propose to tackle this problem by splitting the mixture into o
 
 | Methods           | Sample Times | SI-SDR | SDR    |
 |:------:           |:------------:|:------:|:------:|
-| Input             | N.A.         | 0.01   | 0.13   |
 | AR Sampling w/ TF | 1            | 3.71   | 4.96   |
 | AR sampling w/ TF | 3            |
 | Naive Sampling    | 1            | 2.86   | 4.27   |
 | AR sampling       | 1            | 2.46   | 3.91   |
 | AR sampling       | 3            |
 
+
++------------------------+------------------------+-----------------------+
+| Methods | Metric       | SI-SDRi                | SDRi                  | 
+|         |--------------+-------+-------+--------+-------+-------+-------+
+|         | Sample Times |1      |2      |3       |1      |2      |3      |
++:======================:+:=====:+:=====:+:======:+:=====:+:=====:+:=====:+
+| AR Sampling w/ TF      | 1     | 3.71  | 3.71   | 3.71  | 4.96  | 4.96  |
+| AR sampling w/ TF      | 3     | 3.71  | 3.71   | 3.71  | 4.96  | 4.96  |
+| Naive Sampling         | 1     | 2.86  | 2.86   | 2.86  | 4.27  | 4.27  |
++------------------------+-------+-------+--------+-------+-------+-------+
 
 
 # Conclusion
