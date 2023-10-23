@@ -66,7 +66,7 @@ In addition, decomposing the distribution into a chain of conditional distributi
 
 Let us start with a general formulation of the multi-channel audio inverse problem.
 We have an M-channel mixture signal $\mathbf{x}(n, f) \in \mathbb{C}^M$ where $n, f$ are the time and frequency indices, respectively.
-It contains $N$ sources $s_i(n, f) \in \mathbb{C}^N$ where $i \in \{1, 2, ..., N\}$, and a measurement noise signal $\mathbf{\epsilon} \sim N(0, \sigma_x^2)$.
+It contains $N$ sources $s_i(n, f) \in \mathbb{C}^N$ where $i \in \{1, 2, ..., N\}$, and a measurement noise signal $z \sim CN(0, \sigma_x^2)$.
 The sources are transformed by a non-invertible linear system $\mathbf{H}(n, f) \in \mathbb{C}^{M \times N}$ and mixed with the noise, resulting in
 $$
 \mathbf{x}(n, f) = \mathbf{H}(n, f)
@@ -76,8 +76,8 @@ s_2(n, f) \\
 \vdots \\
 s_N(n, f)
 \end{bmatrix}
-+ \mathbf{\epsilon}.
-$$.
++ z.
+$$
 The objective of the inverse problem is to estimate the sources $\mathbf{s}(n, f) \in \mathbb{C}^N$ from the mixture $\mathbf{x}(n, f)$.
 To solve this unsupervisedly with posterior sampling, we need to train DMs that model the distribution of the sources $p(s_i(n, f))$.
 Each $s_i(n, f)$ is either drawn from different or the same distributions (DMs), where the latter is the case we want to tackle in this paper.
