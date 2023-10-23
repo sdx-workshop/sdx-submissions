@@ -58,26 +58,14 @@ Dialogue and lyrics can be difficult to pick-out and the loss of high frequencie
 The most common treatment for hearing loss is hearing aids. 
 But about 40% of people who could benefit from hearing aids do not use them often enough citing poor perceived performance. 
 Being able to demix sounds on a hearing aid would allow a personalised rebalancing of sounds in a remix to improve audio quality. 
-For soundtracks, you might amplify parts that are important to the narrative, such as the dialogue and key sound effects. 
+For soundtracks, you might amplify parts that are important to the narrative, such as the dialogue and key sound effects [@shirley2019personalization,@ward2019casualty]. 
 For music, the requirements for remixing are still being researched but it might include amplifying the lyrics so these are easier to hear. 
 A challenge is that hearing loss is heterogenious. 
 Furthermore, the tolerence of hearing aid users to distortion artefacts from processing varies. 
 Consequently, it is important any remix is personalised. 
 The Cadenza project is running a series of machine learning challenges to improve the processing of music for those with a hearing loss. 
 Our ICASSP 2024 grand demixing/remix challenge encourages causal and non-causal approaches. 
-Non-causal musical source separation with deep neural networks has achieved impressive results for separating pop/rock into vocals, bass, drums, and other. 
+Non-causal musical source separation with deep neural networks has achieved impressive results [@mitsufuji2022music] for separating pop/rock into vocals, bass, drums, and other[@musdb18-hq]. 
 For hearing aids and live music, a low-latency, causal approaches are needed. 
 Furthermore, hearing aid processing power is limited, which is challenging for very large models. 
 The paper will outline the opportunities and challenges of using source separation to improve accessibility.
-
-
-
-
-
-
-
-
-
-
-
-
