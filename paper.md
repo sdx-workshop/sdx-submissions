@@ -112,12 +112,13 @@ Because $\mathbf{s}(0) \approx s_i(n, f)$, we can sample them by integrating the
 We can use a neural network $\theta(\mathbf{s}(t); t)$ to estimate the score function $\nabla_{\mathbf{s}(t)} \log p(\mathbf{s}(t))$ by training them to denoise the noisy data $\mathbf{s}(t)$, where $t \sim U(0, T)$.
 
 
-## Conditional sampling in diffusion models
+## Mixture conditioning
 
 One can transform the score function to a conditional one using simple bayes rule
 $$
 \nabla_{\mathbf{s}(t)} \log p(\mathbf{s}(t)|\mathbf{x}) = \nabla_{\mathbf{s}(t)} \log p(\mathbf{x}|\mathbf{s}(t)) + \nabla_{\mathbf{s}(t)} \log p(\mathbf{s}(t)).
 $$
+
 We adopt the weakly-supervised posterior score function from [@mariani2023multi] as our conditional score function, which is
 
 $$
@@ -125,7 +126,15 @@ $$
 \nabla_{\mathbf{s}_i(t)} \log p(\mathbf{s}_i(t)) - 
 \nabla_{\mathbf{s}_i(t)} \log p(\mathbf{x} - \sum_{i = 2}^N \mathbf{s}_i(t)),
 $$
-where we set $\mathbf{s}_1(t)$ as the constrained source.
+for $i > 1$ and we set $\mathbf{s}_1(t)$ as the constrained source.
+
+## Enforcing coherency with autoregressive inpainting
+
+To tackle the problem of singer identity switching, we propose to split the mixture into overlapping segments and perform posterior sampling sequentially.
+The mixture of the segment and the overlapping part of the previous separated segment are used as condition.
+The conditioning is simply placing the noisy $\mathbf{s}(t)$ condition on the overlapping part during sampling, similar to doing inpainting [@crash].
+This regulates the model to predict more coherent signal to the condition in the non-overlapping part.
+
 
 
 # Experiments
