@@ -46,12 +46,12 @@ Moreover, the rise of diffusion models (DMs) [@ddpm; @song2020score] introduce a
 
 By adding conditional information into the diffusion process, we can sample the target signal from a pre-trained unconditional DM given an observed signal.
 This process is called posterior sampling, and has been applied successfully in solving various audio inverse problems [@moliner2023solving; @saito2023unsupervised; @yu2023conditioning; @murata2023gibbsddrm; @vrdmg] and also source separation[@mariani2023multi; @hirano2023diffusion].
-[@mariani2023multi] trained a 4-track DM, each track correponds to $Bass$, $Drums$, $Guitar$, and $Piano$, and proposed a novel conditioning scheme based on the Dirac delta function to do music source separation with posterior sampling.
-[@hirano2023diffusion] proposed to use an unconditional speech DM to enhance an initial estimation of a multi-speaker speech separation model.
+@mariani2023multi trained a 4-track DM, each track correponds to $Bass$, $Drums$, $Guitar$, and $Piano$, and proposed a novel conditioning scheme based on the Dirac delta function to do music source separation with posterior sampling.
+@hirano2023diffusion proposed to use an unconditional speech DM to enhance an initial estimation of a multi-speaker speech separation model.
 They assume the target speech is draw from a Gaussian distribution centered at the initial estimation and use DDRM [@ddrm] for refining the estimation.
 Nevertheless, no similar work has been done on source separation of monotimbral sources, such as singing voices, solely based on a single unconditional DM.
 
-We start examining this problem on singing voices separation with an unconditional single singer DM and found that, without additional guidance similar to [@hirano2023diffusion], the singer identity in the separated audio is not consistent and can switch from one to another after a short period of time.
+We start examining this problem on singing voices separation with an unconditional single singer DM and found that, without additional guidance similar to @hirano2023diffusion, the singer identity in the separated audio is not consistent and can switch from one to another after a short period of time.
 This is reasonable because the prior we can use are the implicit timbre conherency and the pitch contour distribution learned by the DMs.
 Moreover, in case the sources in the mixture are sung by the same singer, which is common in studio recordings, only the pitch prior can be utilised.
 Interestingly, this kind of failure cases also exist in supervised separator [@medleyvox], showing that the problem is not trivial.
@@ -85,14 +85,14 @@ Note that by distribution we mean the same instrument, such as singing voices an
 
 ## Related works
 
-The work by [@mariani2023multi] is one of the pioneer that use posterior sampling to do source separation. 
+The work by @mariani2023multi is one of the pioneer that use posterior sampling to do source separation. 
 They consider single channel source separation with $\mathbf{H}(n, f)$ is simply an all-one vector.
 However, they modelled the joint distribution $p(s_1(n, f), s_2(n, f), \cdots, s_N(n, f))$ with a single DM and utilise the inter-source correlation to do separation. 
 The joint-training method also cannot generalise arbitrary number of sources.
-[@hirano2023diffusion] is the closest work to ours.
+The work by @hirano2023diffusion is the closest work to ours.
 The DM they used is trained on single speaker speech data, but the requirement of a pre-trained speech separation model breaks the fully unsupervised assumption.
 
-Outside source separation, several works have dealt with this problem with a single source ($N=1$), either with a known $\mathbf{H}(n, f)$ in the case of bandwidth extension [@moliner2023solving; @yu2023conditioning; @vrdmg] or an unknown one such as removing reverberation from vocals [@murata2023gibbsddrm, @saito2023unsupervised].
+Outside source separation, several works have dealt with this problem with a single source ($N=1$), either with a known $\mathbf{H}(n, f)$ in the case of bandwidth extension [@moliner2023solving; @yu2023conditioning; @vrdmg] or an unknown one such as removing reverberation from vocals [@murata2023gibbsddrm; @saito2023unsupervised].
 Non-linear problems such as de-cliping [@moliner2023solving; @vrdmg] has also been tackled with DMs.
 
 Lastly, we want to point out that, there are no works, to the best of our knowledge, that use this approach to solve problems with multiple sources and multi-channel mixtures, either the $\mathbf{H}(n, f)$ is known or unknown.
@@ -118,7 +118,7 @@ $$
 \nabla_{\mathbf{s}(t)} \log p(\mathbf{s}(t)|\mathbf{x}) = \nabla_{\mathbf{s}(t)} \log p(\mathbf{x}|\mathbf{s}(t)) + \nabla_{\mathbf{s}(t)} \log p(\mathbf{s}(t)).
 $$
 We consider the simple case where the mixture is simply a sum of the sources, i.e. $\mathbf{x} = \sum_{i = 1}^N \mathbf{s}_i(0)$.
-We choose the weakly-supervised posterior score function from [@mariani2023multi] as our conditional score function, which is
+We choose the weakly-supervised posterior score function from @mariani2023multi as our conditional score function, which is
 
 $$
 \nabla_{\mathbf{s}_i(t)} \log p(\mathbf{s}_i(t)|\mathbf{x}) \approx
