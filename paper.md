@@ -122,10 +122,10 @@ We adopt the weakly-supervised posterior score function from [@mariani2023multi]
 
 $$
 \nabla_{\mathbf{s}_i(t)} \log p(\mathbf{s}_i(t)|\mathbf{x}) \approx
-\nabla_{\mathbf{s}_i(t)} \log p(\mathbf{s}_i(t)) + 
-\nabla_{\mathbf{s}_i(t)} \log p(\mathbf{x} - \sum_{i = 2}^N \mathbf{s}_i(t)).
-
+\nabla_{\mathbf{s}_i(t)} \log p(\mathbf{s}_i(t)) - 
+\nabla_{\mathbf{s}_i(t)} \log p(\mathbf{x} - \sum_{i = 2}^N \mathbf{s}_i(t)),
 $$
+where we set $\mathbf{s}_1(t)$ as the constrained source.
 
 
 # Experiments
