@@ -44,12 +44,12 @@ The benefit of this approach is that it does not require paired data, which is s
 Moreover, the rise of diffusion models (DMs) [@ddpm; @song2020score] introduce a more flexible way for unsupervised source separation.
 
 
-By adding conditional information into the diffusion process, we can sample the target signal from a pre-trained unconditional DMs given an observed signal.
+By adding conditional information into the diffusion process, we can sample the target signal from a pre-trained unconditional DM given an observed signal.
 This process is called posterior sampling, and has been applied successfully in solving various audio inverse problems [@moliner2023solving; @saito2023unsupervised; @yu2023conditioning; @murata2023gibbsddrm; @vrdmg] and also source separation[@mariani2023multi; @hirano2023diffusion].
-[@mariani2023multi] trained a 4-track DMs, each track correponds to $Bass$, $Drums$, $Guitar$, and $Piano$, and proposed a novel conditioning scheme based on the Dirac delta function to do music source separation with posterior sampling.
-[@hirano2023diffusion] proposed to use an unconditional speech DMs to enhance an initial estimation of a multi-speaker speech separation model.
+[@mariani2023multi] trained a 4-track DM, each track correponds to $Bass$, $Drums$, $Guitar$, and $Piano$, and proposed a novel conditioning scheme based on the Dirac delta function to do music source separation with posterior sampling.
+[@hirano2023diffusion] proposed to use an unconditional speech DM to enhance an initial estimation of a multi-speaker speech separation model.
 They assume the target speech is draw from a Gaussian distribution centered at the initial estimation and use DDRM [@ddrm] for refining the estimation.
-Nevertheless, no similar work has been done on source separation of monotimbral sources, such as singing voices, solely based on a single unconditional DMs.
+Nevertheless, no similar work has been done on source separation of monotimbral sources, such as singing voices, solely based on a single unconditional DM.
 
 We start examining this problem on singing voices separation with an unconditional single singer DM and found that, without additional guidance similar to [@hirano2023diffusion], the singer identity in the separated audio is not consistent and can switch from one to another after a short period of time.
 This is reasonable because the prior we can use are the implicit timbre conherency and the pitch contour distribution learned by the DMs.
@@ -87,7 +87,7 @@ Note that by distribution we mean the same instrument, such as singing voices an
 
 The work by [@mariani2023multi] is one of the pioneer that use posterior sampling to do source separation. 
 They consider single channel source separation with $\mathbf{H}(n, f)$ is simply an all-one vector.
-However, they modelled the joint distribution $p(s_1(n, f), s_2(n, f), \cdots, s_N(n, f))$ with a single DMs and utilise the inter-source correlation to do separation. 
+However, they modelled the joint distribution $p(s_1(n, f), s_2(n, f), \cdots, s_N(n, f))$ with a single DM and utilise the inter-source correlation to do separation. 
 The joint-training method also cannot generalise arbitrary number of sources.
 [@hirano2023diffusion] is the closest work to ours.
 The DM they used is trained on single speaker speech data, but the requirement of a pre-trained speech separation model breaks the fully unsupervised assumption.
@@ -98,9 +98,12 @@ Non-linear problems such as de-cliping [@moliner2023solving; @vrdmg] has also be
 
 Lastly, we want to point out that, there are no works, to the best of our knowledge, that use this approach to solve problems with multiple sources and multi-channel mixtures, either the $H(n, f)$ is known or unknown.
 This problem occurs in ensemble separation, such as choir or orchestra sections, which is often recorded with multiple microphones.
-The holy grail of this approach is to have a generalised solution that can be applied on arbitrary transformation $\mathbf{H}(n, f)$ and $N$ with the same set of DMs, and each of the DMs is trained independently without the need of mixture data.
+The holy grail of this approach is to have a generalised solution that can be applied on arbitrary transformation $\mathbf{H}(n, f)$ and $N$ with the same set of DMs, and each of the DMs is trained on isolated sources without the need of mixture data.
 
 # Methodology
+
+
+
 
 # Experiments
 
