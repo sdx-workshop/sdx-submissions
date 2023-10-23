@@ -96,13 +96,36 @@ Outside source separation, several works have dealt with this problem with a sin
 It is possible to derive a solution when $\mathbf{H}(n, f)$ is unknwn by estimating it jointly with Gibbs sampling [@murata2023gibbsddrm].
 Non-linear problems such as de-cliping [@moliner2023solving; @vrdmg] has also been tackled with DMs.
 
-Lastly, we want to point out that, there are no works, to the best of our knowledge, that use this approach to solve problems with multiple sources and multi-channel mixtures, either the $H(n, f)$ is known or unknown.
+Lastly, we want to point out that, there are no works, to the best of our knowledge, that use this approach to solve problems with multiple sources and multi-channel mixtures, either the $\mathbf{H}(n, f)$ is known or unknown.
 This problem occurs in ensemble separation, such as choir or orchestra sections, which is often recorded with multiple microphones.
 The holy grail of this approach is to have a generalised solution that can be applied on arbitrary transformation $\mathbf{H}(n, f)$ and $N$ with the same set of DMs, and each of the DMs is trained on isolated sources without the need of mixture data.
 
 # Methodology
 
+In diffusion models, the data generation process is governed by an ODE
+$$
+d\mathbf{s}(t) = \sigma(t) \nabla_{\mathbf{s}(t)} \log p(\mathbf{s}(t)) dt.
+$$
+Here, we use $\mathbf{s}(t)$ to represent $s_i(n, f) + z, z \sim N(0, \sigma^2(t))$ for arbitrary $i$.
+The $\sigma(t)$ is a increasing function of $t$ and is called the noise schedule.
+Because $\mathbf{s}(0) \approx s_i(n, f)$, we can sample them by integrating the ODE from $t=T$ to $t=0$ with $\mathbf{s}(T) \sim N(\mathbf{0}, \sigma^2(T))$.
+We can use a neural network $\theta(\mathbf{s}(t); t)$ to estimate the score function $\nabla_{\mathbf{s}(t)} \log p(\mathbf{s}(t))$ by training them to denoise the noisy data $\mathbf{s}(t)$, where $t \sim U(0, T)$.
 
+
+## Conditional sampling in diffusion models
+
+One can transform the score function to a conditional one using simple bayes rule
+$$
+\nabla_{\mathbf{s}(t)} \log p(\mathbf{s}(t)|\mathbf{x}) = \nabla_{\mathbf{s}(t)} \log p(\mathbf{x}|\mathbf{s}(t)) + \nabla_{\mathbf{s}(t)} \log p(\mathbf{s}(t)).
+$$
+We adopt the weakly-supervised posterior score function from [@mariani2023multi] as our conditional score function, which is
+
+$$
+\nabla_{\mathbf{s}_i(t)} \log p(\mathbf{s}_i(t)|\mathbf{x}) \approx
+\nabla_{\mathbf{s}_i(t)} \log p(\mathbf{s}_i(t)) + 
+\nabla_{\mathbf{s}_i(t)} \log p(\mathbf{x} - \sum_{i = 2}^N \mathbf{s}_i(t)).
+
+$$
 
 
 # Experiments
