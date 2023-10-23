@@ -136,7 +136,7 @@ The conditioning is simply placing the noisy $\mathbf{s}(t)$ condition on the ov
 This regulates the model to predict more coherent signal to the condition in the non-overlapping part.
 The whole sampling process is illustrated in Figure \ref{fig:diagram}.
 
-![A diagram of the conditioning process on two consecutive segments.](figures/diagram.png){label="fig:diagram" width=80%}
+![A diagram of the conditioning process on two consecutive segments.\label{fig:diagram}](figures/diagram.png){width=80%}
 
 
 # Experiments
