@@ -118,8 +118,8 @@ One can transform the score function to a conditional one using simple bayes rul
 $$
 \nabla_{\mathbf{s}(t)} \log p(\mathbf{s}(t)|\mathbf{x}) = \nabla_{\mathbf{s}(t)} \log p(\mathbf{x}|\mathbf{s}(t)) + \nabla_{\mathbf{s}(t)} \log p(\mathbf{s}(t)).
 $$
-
-We adopt the weakly-supervised posterior score function from [@mariani2023multi] as our conditional score function, which is
+We consider the simple case where the mixture is simply a sum of the sources, i.e. $\mathbf{x} = \sum_{i = 1}^N \mathbf{s}_i(t)$.
+We choose the weakly-supervised posterior score function from [@mariani2023multi] as our conditional score function, which is
 
 $$
 \nabla_{\mathbf{s}_i(t)} \log p(\mathbf{s}_i(t)|\mathbf{x}) \approx
