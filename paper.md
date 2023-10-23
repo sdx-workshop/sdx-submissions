@@ -92,8 +92,7 @@ The joint-training method also cannot generalise arbitrary number of sources.
 [@hirano2023diffusion] is the closest work to ours.
 The DM they used is trained on single speaker speech data, but the requirement of a pre-trained speech separation model breaks the fully unsupervised assumption.
 
-Outside source separation, several works have dealt with this problem with a single source ($N=1$) and a known $\mathbf{H}(n, f)$, such as bandwidth extension [@moliner2023solving; @yu2023conditioning; @vrdmg] and vocal dereverberation [@saito2023unsupervised].
-It is possible to derive a solution when $\mathbf{H}(n, f)$ is unknwn by estimating it jointly with Gibbs sampling [@murata2023gibbsddrm].
+Outside source separation, several works have dealt with this problem with a single source ($N=1$), either with a known $\mathbf{H}(n, f)$ in the case of bandwidth extension [@moliner2023solving; @yu2023conditioning; @vrdmg] or an unknown one such as removing reverberation from vocals [@murata2023gibbsddrm, @saito2023unsupervised].
 Non-linear problems such as de-cliping [@moliner2023solving; @vrdmg] has also been tackled with DMs.
 
 Lastly, we want to point out that, there are no works, to the best of our knowledge, that use this approach to solve problems with multiple sources and multi-channel mixtures, either the $\mathbf{H}(n, f)$ is known or unknown.
@@ -124,7 +123,7 @@ We choose the weakly-supervised posterior score function from [@mariani2023multi
 $$
 \nabla_{\mathbf{s}_i(t)} \log p(\mathbf{s}_i(t)|\mathbf{x}) \approx
 \nabla_{\mathbf{s}_i(t)} \log p(\mathbf{s}_i(t)) - 
-\nabla_{\mathbf{s}_i(t)} \log p(\mathbf{x} - \sum_{i = 2}^N \mathbf{s}_i(t)),
+\nabla_{\mathbf{s}_i(t)} \log p(\mathbf{x} - \sum_{i = 2}^N \mathbf{s}_i(t))
 $$
 for $i > 1$ and we set $\mathbf{s}_1(t)$ as the constrained source.
 
