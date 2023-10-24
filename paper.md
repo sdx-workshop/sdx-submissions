@@ -140,12 +140,44 @@ The whole sampling process is illustrated in Figure \ref{fig:diagram}.
 
 # Experiments
 
+## Datasets
+
+We used the following 8 singing voice datasets for training our unconditional DM.
+The total duration of the training data is > 104 hours.
+
+- M4Singer [@m4singer]
+- OpenCPOP [@opencpop]
+- OpenSinger [@opensinger]
+- VocalSet [@vocalset]
+- JVS-MuSiC [@jvs]
+- Children's Song Dataset [@csd]
+- NUS Sung and Spoken Lyrics Corpus [@nus]
+- PJS [@pjs]
+
+We resampled all the data to 24 kHz and converted them to mono and segmented the data into 131072 samples (5.46 seconds) with half of the samples overlapping.
+The test songs are from the duet category of MedleyVox dataset [@medleyvox].
+We dropped 13 clips with loud background music or have effects such as reverb and echo[^1], resulting in 103 clips (also resampled to 24 kHz) for evaluation.
+
+[^1]: The dropped clips from the songs _CatMartino_IPromise_, _TleilaxEnsemble_Late_, and _TleilaxEnsemble_MelancholyFlowers_.
+
+## Training/Evaluation details
+
+The score prediction network is a UNet developed by @mousai with 424M parameters[^2].
+We used AdamW [@adamw] with a learning rate of 0.0001 and a batch size of 32.
+We trained it for 1M steps, which is roungly 8 days on a single RTX A5000 GPU.
+The evaluation metrics we used are SI-SDR and SDR improvements (SI-SDRi and SDRi) over the mixture.
+We calculated the metrics with the `asteroid`[@asteroid] package.
+
+
+[^2]: Configuration details are in our code repository.
+
+## Results
 
 | Methods             | SI-SDRi    | SDRi       |
 |:------:             |:----------:|:----------:|
 | Naive Sampling      | 6.61       | 7.60       |
 | AR sampling         | 6.48       | 7.46       |
-| AR sampling (inner) | 11.09      | 11.79      |
+| AR sampling (intra) | 11.09      | 11.79      |
 
 
 
