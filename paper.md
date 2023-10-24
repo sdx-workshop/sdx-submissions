@@ -30,7 +30,7 @@ bibliography: paper.bib
 
 In music demixing, drums is conventionally treated as a single stem despite being an ensemble of percussive 
 instruments in itself. At the same time, the availability of publicly-available datasets specifically 
-tailored for drums demixing has been severely lacking. To address this gap, we present StemGMD, the first large-scale 
+tailored for drums demixing has been severely lacking. To address this gap, we present StemGMD[^1], the first large-scale 
 multi-kit audio dataset of isolated single-instrument drum stems. Each audio clip in StemGMD is synthesized from MIDI 
 recordings of expressive drums performances taken from Magenta's Groove Midi Dataset (GMD) using ten real-sounding sample libraries from Logic Pro X.
 Totaling over 1224 hours, StemGMD is the largest dataset of drums to date and the first to comprise isolated 
@@ -41,3 +41,5 @@ Furthermore, having access to isolated audio stems enables a vast array of diver
 inspiration from common music production practices. Alongside the dataset, we release a reference model built upon a 
 bank of parallel U-Nets that separates five stems (kick drum, snare, tom-toms, hi-hat, cymbals) from a stereo drum mixture through spectro-temporal soft masking. 
 Such model is meant to serve as a baseline for future research and might complement existing music demixing models.
+
+[^1] DOI: 10.5281/zenodo.7860223
