@@ -77,6 +77,7 @@ s_2(n, f) \\
 s_N(n, f)
 \end{bmatrix}
 + z.
+\label{eq:mix}
 $$
 The objective of the inverse problem is to estimate the sources $\mathbf{s}(n, f) \in \mathbb{C}^N$ from the mixture $\mathbf{x}(n, f)$.
 To solve this unsupervisedly with posterior sampling, we need to train DMs that model the distribution of the sources $p(s_i(n, f))$.
@@ -104,6 +105,7 @@ The holy grail of this approach is to have a generalised solution that can be ap
 In diffusion models, the data generation process is governed by an ODE
 $$
 d\mathbf{s}(t) = \sigma(t) \nabla_{\mathbf{s}(t)} \log p(\mathbf{s}(t)) dt.
+\label{eq:ode}
 $$
 Here, we use $\mathbf{s}(t)$ to represent $s_i(n, f) + z, z \sim N(0, \sigma^2(t))$ for arbitrary $i$.
 The $\sigma(t)$ is a increasing function of $t$ and is called the noise schedule.
@@ -116,14 +118,16 @@ We can use a neural network $\theta(\mathbf{s}(t); t)$ to estimate the score fun
 One can transform the score function to a conditional one using simple bayes rule
 $$
 \nabla_{\mathbf{s}(t)} \log p(\mathbf{s}(t)|\mathbf{x}) = \nabla_{\mathbf{s}(t)} \log p(\mathbf{x}|\mathbf{s}(t)) + \nabla_{\mathbf{s}(t)} \log p(\mathbf{s}(t)).
+\label{eq:cond}
 $$
-We consider the simple case where the mixture is simply a sum of the sources, i.e. $\mathbf{x} = \sum_{i = 1}^N \mathbf{s}_i(0)$.
+We consider the case where the mixture is simply a sum of the sources, i.e. $\mathbf{x} = \sum_{i = 1}^N \mathbf{s}_i(0)$.
 We choose the weakly-supervised posterior score function from @mariani2023multi as our conditional score function, which is
 
 $$
 \nabla_{\mathbf{s}_i(t)} \log p(\mathbf{s}_i(t)|\mathbf{x}) \approx
 \nabla_{\mathbf{s}_i(t)} \log p(\mathbf{s}_i(t)) - 
 \nabla_{\mathbf{s}_i(t)} \log p(\mathbf{x} - \sum_{i = 2}^N \mathbf{s}_i(t))
+\label{eq:cond2}
 $$
 for $i > 1$ and we set $\mathbf{s}_1(t)$ as the constrained source.
 
@@ -158,7 +162,7 @@ We resampled all the data to 24 kHz and converted them to mono and segmented the
 The test songs are from the duet category of MedleyVox dataset [@medleyvox].
 We dropped 13 clips with loud background music or have effects such as reverb and echo[^1], resulting in 103 clips (also resampled to 24 kHz) for evaluation.
 
-[^1]: The dropped clips from the songs _CatMartino_IPromise_, _TleilaxEnsemble_Late_, and _TleilaxEnsemble_MelancholyFlowers_.
+[^1]: We dropped clips from the songs _CatMartino_IPromise_, _TleilaxEnsemble_Late_, and _TleilaxEnsemble_MelancholyFlowers_.
 
 ## Training/Evaluation details
 
@@ -166,7 +170,12 @@ The score prediction network is a UNet developed by @mousai with 424M parameters
 We used AdamW [@adamw] with a learning rate of 0.0001 and a batch size of 32.
 We trained it for 1M steps, which is roungly 8 days on a single RTX A5000 GPU.
 The evaluation metrics we used are SI-SDR and SDR improvements (SI-SDRi and SDRi) over the mixture.
-We calculated the metrics with the `asteroid`[@asteroid] package.
+We calculated the metrics with the `asteroid` [@asteroid] package.
+The number of diffusion steps were set to 100 for all the experiments.
+The segment size for autoregressive sampling was the same as the training data, i.e. 131072 samples.
+We tested different overlap ratios for sampling.
+Generall speaking, the more overlap the better the results, but the sampling time also increases.
+We choose 75% overlap as a good trade-off between the performance and the sampling time.
 
 
 [^2]: Configuration details are in our code repository.
