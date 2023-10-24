@@ -93,7 +93,7 @@ The work by @hirano2023diffusion is the closest work to ours.
 The DM they used is trained on single speaker speech data, but the requirement of a pre-trained speech separation model breaks the fully unsupervised assumption.
 
 Outside source separation, several works have dealt with this problem with a single source ($N=1$), either with a known $\mathbf{H}(n, f)$ in the case of bandwidth extension [@moliner2023solving; @yu2023conditioning; @vrdmg] or an unknown one such as removing reverberation from vocals [@murata2023gibbsddrm; @saito2023unsupervised].
-Non-linear problems such as de-cliping [@moliner2023solving; @vrdmg] has also been tackled with DMs.
+Non-linear problems such as de-cliping has also been tackled with DMs [@moliner2023solving; @vrdmg].
 
 Lastly, we want to point out that, there are no works, to the best of our knowledge, that use this approach to solve problems with multiple sources and multi-channel mixtures, either the $\mathbf{H}(n, f)$ is known or unknown.
 This problem occurs in ensemble separation, such as choir or orchestra sections, which is often recorded with multiple microphones.
@@ -141,17 +141,11 @@ The whole sampling process is illustrated in Figure \ref{fig:diagram}.
 # Experiments
 
 
-| Methods           | SI-SDRi, 1 | SI-SDRi, 2 | SI-SDRi, 3 |
-|:------:           |:----------:|:----------:|:----------:|
-| AR sampling w/ TF | 3.71       | 9.45       | 11.42      |
-| Naive Sampling    | 2.85       | 3.84       | 6.75       |
-| AR sampling       | 2.46       | 9.64       | 11.09      | 
-
-| Methods           | SDRi, 1 | SDRi, 2 |SDRi, 3 |
-|:------:           |:-------:|:-------:|:-------:|
-| AR sampling w/ TF | 4.83    | 10.18   | 11.99   |
-| Naive Sampling    | 4.14    | 5.02    | 7.73    |
-| AR sampling       | 3.78    | 10.34   | 11.79   |
+| Methods             | SI-SDRi    | SDRi       |
+|:------:             |:----------:|:----------:|
+| Naive Sampling      | 6.61       | 7.60       |
+| AR sampling         | 6.48       | 7.46       |
+| AR sampling (inner) | 11.09      | 11.79      |
 
 
 
