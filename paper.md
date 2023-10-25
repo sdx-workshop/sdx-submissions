@@ -77,7 +77,7 @@ s_2(n, f) \\
 s_N(n, f)
 \end{bmatrix}
 + z.
-\label{eq:mix}
+\label{mix}
 $$
 The objective of the inverse problem is to estimate the sources $\mathbf{s}(n, f) \in \mathbb{C}^N$ from the mixture $\mathbf{x}(n, f)$.
 To solve this unsupervisedly with posterior sampling, we need to train DMs that model the distribution of the sources $p(s_i(n, f))$.
@@ -105,7 +105,7 @@ The holy grail of this approach is to have a generalised solution that can be ap
 In diffusion models, the data generation process is governed by an ODE
 $$
 d\mathbf{s}(t) = \sigma(t) \nabla_{\mathbf{s}(t)} \log p(\mathbf{s}(t)) dt.
-\label{eq:ode}
+\label{ode}
 $$
 Here, we use $\mathbf{s}(t)$ to represent $s_i(n, f) + z, z \sim N(0, \sigma^2(t))$ for arbitrary $i$.
 The $\sigma(t)$ is a increasing function of $t$ and is called the noise schedule.
@@ -118,7 +118,7 @@ We can use a neural network $\theta(\mathbf{s}(t); t)$ to estimate the score fun
 One can transform the score function to a conditional one using simple bayes rule
 $$
 \nabla_{\mathbf{s}(t)} \log p(\mathbf{s}(t)|\mathbf{x}) = \nabla_{\mathbf{s}(t)} \log p(\mathbf{x}|\mathbf{s}(t)) + \nabla_{\mathbf{s}(t)} \log p(\mathbf{s}(t)).
-\label{eq:cond}
+\label{cond}
 $$
 We consider the case where the mixture is simply a sum of the sources, i.e. $\mathbf{x} = \sum_{i = 1}^N \mathbf{s}_i(0)$.
 We choose the weakly-supervised posterior score function from @mariani2023multi as our conditional score function, which is
@@ -127,7 +127,7 @@ $$
 \nabla_{\mathbf{s}_i(t)} \log p(\mathbf{s}_i(t)|\mathbf{x}) \approx
 \nabla_{\mathbf{s}_i(t)} \log p(\mathbf{s}_i(t)) - 
 \nabla_{\mathbf{s}_i(t)} \log p(\mathbf{x} - \sum_{i = 2}^N \mathbf{s}_i(t))
-\label{eq:cond2}
+\label{cond2}
 $$
 for $i > 1$ and we set $\mathbf{s}_1(t)$ as the constrained source.
 
@@ -184,10 +184,11 @@ We choose 75% overlap as a good trade-off between the performance and the sampli
 
 | Methods             | SI-SDRi    | SDRi       |
 |:------:             |:----------:|:----------:|
+| NMF                 | 4.99       | 5.84       |
+| iSRNet [@medleyvox] | 15.10      | 14.20      |
 | Naive Sampling      | 6.61       | 7.60       |
 | AR sampling         | 6.48       | 7.46       |
-| AR sampling (intra) | 11.09      | 11.79      |
-
+| AR sampling (intra) | 11.24      | 11.89      |
 
 
 
