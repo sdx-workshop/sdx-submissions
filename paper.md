@@ -66,7 +66,7 @@ In addition, decomposing the distribution into a chain of conditional distributi
 
 Let us start with a general formulation of the multi-channel audio inverse problem.
 We have an M-channel mixture signal $\mathbf{x}(n, f) \in \mathbb{C}^M$ where $n, f$ are the time and frequency indices, respectively.
-It contains $N$ sources $s_i(n, f) \in \mathbb{C}^N$ where $i \in \{1, 2, ..., N\}$, and a measurement noise signal $z \sim CN(0, \sigma_x^2)$.
+It contains $N$ sources $s_i(n, f) \in \mathbb{C}^N$ where $i \in \{1, 2, ..., N\}$, and a measurement noise signal $z \sim \mathcal{CN}(0, \sigma_x^2)$.
 The sources are transformed by a non-invertible linear system $\mathbf{H}(n, f) \in \mathbb{C}^{M \times N}$ and mixed with the noise, resulting in
 $$
 \mathbf{x}(n, f) = \mathbf{H}(n, f)
@@ -80,23 +80,23 @@ s_N(n, f)
 \label{mix}
 $$
 The objective of the inverse problem is to estimate the sources $\mathbf{s}(n, f) \in \mathbb{C}^N$ from the mixture $\mathbf{x}(n, f)$.
-To solve this unsupervisedly with posterior sampling, we need to train DMs that model the distribution of the sources $p(s_i(n, f))$.
+To solve this with posterior sampling, we need to train DMs that model the distribution of the sources $p(s_i(n, f))$.
 Each $s_i(n, f)$ is either drawn from different or the same distributions (DMs), where the latter is the case we want to tackle in this paper.
-Note that by distribution we mean the same instrument, such as singing voices and strings, as monotimbral sources.
+Note that by distribution we mean the sounds sharing very similar timbre, such as singing voices or string instruments.
 
 ## Related works
 
 The work by @mariani2023multi is one of the pioneer that use posterior sampling to do source separation. 
-They consider single channel source separation with $\mathbf{H}(n, f)$ is simply an all-one vector.
-However, they modelled the joint distribution $p(s_1(n, f), s_2(n, f), \cdots, s_N(n, f))$ with a single DM and utilise the inter-source correlation to do separation. 
-The joint-training method also cannot generalise arbitrary number of sources.
+They consider single channel source separation where $\mathbf{H}(n, f)$ is simply an all-one vector.
+However, the authors modelled the joint distribution $p(s_1(n, f), s_2(n, f), \cdots, s_N(n, f))$ with a single DM and utilise the inter-source correlation to do separation. 
+The joint-training method also cannot generalise to an arbitrary number of sources.
 The work by @hirano2023diffusion is the closest work to ours.
 The DM they used is trained on single speaker speech data, but the requirement of a pre-trained speech separation model breaks the fully unsupervised assumption.
 
-Outside source separation, several works have dealt with this problem with a single source ($N=1$), either with a known $\mathbf{H}(n, f)$ in the case of bandwidth extension [@moliner2023solving; @yu2023conditioning; @vrdmg] or an unknown one such as removing reverberation from vocals [@murata2023gibbsddrm; @saito2023unsupervised].
+Outside source separation, several works have dealt with this problem, either with a known $\mathbf{H}(n, f)$ in the case of bandwidth extension [@moliner2023solving; @yu2023conditioning; @vrdmg] or an unknown one such as removing reverberation from vocals [@murata2023gibbsddrm; @saito2023unsupervised].
 Non-linear problems such as de-cliping has also been tackled with DMs [@moliner2023solving; @vrdmg].
 
-Lastly, we want to point out that, there are no works, to the best of our knowledge, that use this approach to solve problems with multiple sources and multi-channel mixtures, either the $\mathbf{H}(n, f)$ is known or unknown.
+Lastly, we point out that, there are no works, to the best of our knowledge, that use this approach to solve problems with multiple sources and multi-channel mixtures.
 This problem occurs in ensemble separation, such as choir or orchestra sections, which is often recorded with multiple microphones.
 The holy grail of this approach is to have a generalised solution that can be applied on arbitrary transformation $\mathbf{H}(n, f)$ and $N$ with the same set of DMs, and each of the DMs is trained on isolated sources without the need of mixture data.
 
@@ -135,7 +135,7 @@ for $i > 1$ and we set $\mathbf{s}_1(t)$ as the constrained source.
 
 To tackle the problem of singer identity switching, we propose to split the mixture into overlapping segments and perform posterior sampling sequentially.
 The mixture of the segment and the overlapping part of the previous separated segment are used as condition.
-The conditioning is simply placing the noisy $\mathbf{s}(t)$ condition on the overlapping part during sampling, similar to doing inpainting [@crash].
+The conditioning is simply placing the noisy $\mathbf{s}(t)$ condition on the overlapping part during sampling, similar to inpainting [@crash].
 This regulates the model to predict more coherent signal to the condition in the non-overlapping part.
 The whole sampling process is illustrated in Figure \ref{fig:diagram}.
 
