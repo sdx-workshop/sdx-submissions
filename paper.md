@@ -32,7 +32,7 @@ These models allow us to sample from the posterior distribution of a target sign
 However, when separating audio sources of the same type, such as duet singing voices, the prior learned by the diffusion process may not be sufficient to maintain the consistency of the source identity in the separated audio.
 For example, the singer may change from one to another from time to time.
 Tackling this problem will be useful for separating sources in a choir, or a mixture of multiple instruments with similar timbre, without acquiring large amounts of paired data.
-In this paper, we examine this problem in the context of duet singing voices separation, and propose a method to enforce the coherency of singer identity by splitting the mixture into overlapping segments and performing posterior sampling in an autoregressive manner, conditioning on the previous segment.
+In this paper, we examine this problem in the context of duet singing voices separation, and propose a method to enforce the coherency of singer identity by splitting the mixture into overlapping segments and performing posterior sampling in an auto-regressive manner, conditioning on the previous segment.
 We evaluate the proposed method on the MedleyVox dataset [@medleyvox] with different overlap ratios, and show that the proposed method outperforms naive posterior sampling baseline.
 Our source code and the pre-trained model are publicly available on https://github.com/yoyololicon/duet-svs-diffusion.
 
@@ -131,7 +131,7 @@ $$
 $$
 for $i > 1$ and we set $\mathbf{s}_1(t)$ as the constrained source.
 
-## Enforcing coherency with autoregressive inpainting
+## Enforcing coherency with auto-regressive inpainting
 
 To tackle the problem of singer identity switching, we propose to split the mixture into overlapping segments and perform posterior sampling sequentially.
 The mixture of the segment and the overlapping part of the previous separated segment are used as condition.
@@ -173,7 +173,7 @@ We trained it for 1M steps, which is roungly 8 days on a single RTX A5000 GPU.
 The evaluation metrics we used are SI-SDR and SDR improvements (SI-SDRi and SDRi) over the mixture.
 We calculated the metrics with the `asteroid` [@asteroid] package.
 The number of diffusion steps were set to 100 for all the experiments.
-The segment size for autoregressive sampling was the same as the training data, i.e. 131072 samples.
+The segment size for auto-regressive sampling was the same as the training data, i.e. 131072 samples.
 We tested different overlap ratios for sampling.
 Generall speaking, the more overlap the better the results, but the sampling time also increases.
 We choose 75% overlap as a good trade-off between the performance and the sampling time.
