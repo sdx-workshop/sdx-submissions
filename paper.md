@@ -183,15 +183,12 @@ We choose 75% overlap as a good trade-off between the performance and the sampli
 
 We evaluated the following methods:
 
-- Non-negative Matrix Factorisation (NMF): We reproduced the NMF baseline from @schulze2023unsupervised using `torchnmf`[^3].
+- Non-negative Matrix Factorisation (**NMF**): We reproduced the NMF baseline from @schulze2023unsupervised using `torchnmf`[^3].
 A modified version of the multi-pitch estimator from @yu2018multi was used to estimate candidate pitches for initialising the activation matrix.
-- Naive: The whole mixture is used as condition without segmentation and auto-regressive sampling.
+- **Naive**: The whole mixture is used as condition without segmentation and auto-regressive sampling.
 We sampled each mixture 3 times and pick the lowest loss one to the ground truth.
-- AR: The proposed auto-regressive sampling method. We sampled three times for each segment and pick the lowest loss one to the ground truth before move on to the next segment.
-<!-- - AR w/o picking: The same as AR sampling but only sampled once for each segment. -->
-- Segmented: The mixture is segmented into 131072 * 25% = 32768 samples without overlapping and naive sampling is performed on each segment.
-<!-- - AR w/ TF: The same as AR sampling but the ground truth signal of the overlapping part is used as condition, similar to teacher forcing. -->
-
+- **AR**: The proposed auto-regressive sampling method. We sampled three times for each segment and pick the lowest loss one to the ground truth before move on to the next segment.
+- **Segmented**: The mixture is segmented into 131072 * 25% = 32768 samples without overlapping and naive sampling is performed on each segment.
 
 [^3]: https://github.com/yoyololicon/pytorch-NMF .
 
@@ -205,10 +202,9 @@ The first row is the supervised baseline from the MedleyVox dataset [@medleyvox]
 | iSRNet [@medleyvox] | 15.10            | 14.20           |
 | NMF                 | 5.12             | 5.97            |
 | Naive               | 6.61 $\pm$ 0.25  | 7.60 $\pm$ 0.21 |
-| AR (proposed)       | **11.24** $\pm$ 0.40 | **11.89** $\pm$ 0.34|
 | Segmented           | 11.14 $\pm$ 0.48 | 11.77 $\pm$ 0.47|
+| AR (proposed)       | **11.24** $\pm$ 0.40 | **11.89** $\pm$ 0.34|
 | AR w/ TF            | 11.75 $\pm$ 0.38 | 12.34 $\pm$ 0.39|
-<!-- | AR w/o picking      | 6.08 $\pm$ 0.35  | 7.05 $\pm$ 0.36 |  -->
 
 All the proposed methods outperformed the learning-free NMF baseline.
 Both the auto-regressive sampling and the segmented sampling improved the naive sampling baseline.
