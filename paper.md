@@ -195,7 +195,7 @@ We sampled each mixture 3 times and pick the lowest loss one to the ground truth
 ## Results and discussions
 
 For all the posterior sampling methods, we ran them three times and report the mean and standard deviation of the metrics in the following table.
-The first row is the supervised baseline from the MedleyVox dataset [@medleyvox].
+The first row is the supervised separator scores copied from the MedleyVox paper [@medleyvox].
 
 | Methods             | SI-SDRi          | SDRi            |
 |:------              |:----------------:|:---------------:|
