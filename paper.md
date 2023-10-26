@@ -34,7 +34,7 @@ For example, the singer may change from one to another from time to time.
 Tackling this problem will be useful for separating sources in a choir, or a mixture of multiple instruments with similar timbre, without acquiring large amounts of paired data.
 In this paper, we examine this problem in the context of duet singing voices separation, and propose a method to enforce the coherency of singer identity by splitting the mixture into overlapping segments and performing posterior sampling in an autoregressive manner, conditioning on the previous segment.
 We evaluate the proposed method on the MedleyVox dataset [@medleyvox] with different overlap ratios, and show that the proposed method outperforms naive posterior sampling baseline.
-Our source code and the pre-trained model are publicly available on GitHub.
+Our source code and the pre-trained model are publicly available on https://github.com/yoyololicon/duet-svs-diffusion.
 
 
 # Introduction
