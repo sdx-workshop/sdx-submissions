@@ -166,7 +166,8 @@ We dropped 13 clips with loud background music or have effects such as reverb an
 
 ## Training/Evaluation details
 
-The score prediction network is a UNet developed by @mousai with 424M parameters[^2].
+The score prediction network is a UNet developed by @mousai with 424M parameters.
+We recommend readers to go to our code repository for more details on the configurations.
 We used AdamW [@adamw] with a learning rate of 0.0001 and a batch size of 32.
 We trained it for 1M steps, which is roungly 8 days on a single RTX A5000 GPU.
 The evaluation metrics we used are SI-SDR and SDR improvements (SI-SDRi and SDRi) over the mixture.
@@ -178,22 +179,52 @@ Generall speaking, the more overlap the better the results, but the sampling tim
 We choose 75% overlap as a good trade-off between the performance and the sampling time.
 
 
-[^2]: Configuration details are in our code repository.
+## Baselines
 
-## Results
+We evaluated the following methods:
 
-| Methods             | SI-SDRi    | SDRi       |
-|:------:             |:----------:|:----------:|
-| NMF                 | 5.12       | 5.97       |
-| iSRNet [@medleyvox] | 15.10      | 14.20      |
-| Naive Sampling      | 6.61       | 7.60       |
-| AR sampling         | 6.48       | 7.46       |
-| AR sampling (intra) | 11.24      | 11.89      |
+- Non-negative Matrix Factorisation (NMF): We reproduced the NMF baseline from @schulze2023unsupervised using `torchnmf`[^3].
+A modified version of the multi-pitch estimator from @yu2018multi was used to estimate candidate pitches for initialising the activation matrix.
+- Naive: The whole mixture is used as condition without segmentation and auto-regressive sampling.
+We sampled each mixture 3 times and pick the lowest loss one to the ground truth.
+- AR: The proposed auto-regressive sampling method. We sampled three times for each segment and pick the lowest loss one to the ground truth before move on to the next segment.
+<!-- - AR w/o picking: The same as AR sampling but only sampled once for each segment. -->
+- Segmented: The mixture is segmented into 131072 * 25% = 32768 samples without overlapping and naive sampling is performed on each segment.
+<!-- - AR w/ TF: The same as AR sampling but the ground truth signal of the overlapping part is used as condition, similar to teacher forcing. -->
 
 
+[^3]: https://github.com/yoyololicon/pytorch-NMF .
+
+## Results and discussions
+
+For all the posterior sampling methods, we ran them three times and report the mean and standard deviation of the metrics in the following table.
+The first row is the supervised baseline from the MedleyVox dataset [@medleyvox].
+
+| Methods             | SI-SDRi          | SDRi            |
+|:------              |:----------------:|:---------------:|
+| iSRNet [@medleyvox] | 15.10            | 14.20           |
+| NMF                 | 5.12             | 5.97            |
+| Naive               | 6.61 $\pm$ 0.25  | 7.60 $\pm$ 0.21 |
+| AR (proposed)       | **11.24** $\pm$ 0.40 | **11.89** $\pm$ 0.34|
+| Segmented           | 11.14 $\pm$ 0.48 | 11.77 $\pm$ 0.47|
+| AR w/ TF            | 11.75 $\pm$ 0.38 | 12.34 $\pm$ 0.39|
+<!-- | AR w/o picking      | 6.08 $\pm$ 0.35  | 7.05 $\pm$ 0.36 |  -->
+
+All the proposed methods outperformed the learning-free NMF baseline.
+Both the auto-regressive sampling and the segmented sampling improved the naive sampling baseline.
+The reason is because both methods operate on a smaller segment, thus giving finer control to pick the best sample.
+
+Comparing the auto-regressive and segmented sampling, the effect of the extra information does give AR sampling slightly higher scores and less variance.
+However, the difference is not significant considering we only performed three runs for calculating the statistics.
+To examine whether the condition plays a role in the sampling process, we also performed sampling with teacher forcing, i.e. using the ground truth signal of the overlapping part as condition.
+We name this variant as AR w/ TF.
+The results in the table show that accurate condition improves around 0.6 dB in both metrics.
 
 # Conclusions
 
-# Acknowledgements
+In this paper, we examined the problem of using an unconditional diffusion model to separate monotimbral sources, in the context of duet singing voices separation.
+We proposed sequentially sampling on the overlapping mixture segments to enforce the coherency of singer identity in the separated audio.
+We evaluated the proposed method on the MedleyVox dataset. 
+The results show that, although most of the improvements are because of the finer control of the sampling process, conditioning on the previous segment does improve the separation performance over the naive posterior sampling baseline.
 
 # References
