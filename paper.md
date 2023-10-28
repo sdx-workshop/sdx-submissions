@@ -20,7 +20,7 @@ affiliations:
    index: 2
 date: 09 October 2023
 bibliography: paper.bib
-arxiv-doi: 10.48550/arXiv.2305.07489
+arxiv: [@solovyev2023benchmarks]
 ---
 
 # Abstract
