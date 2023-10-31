@@ -40,4 +40,4 @@ content and metadata found in GMD, allowing for a broad range of applications su
 Furthermore, having access to isolated audio stems enables a vast array of diverse data augmentation methods that draw 
 inspiration from common music production practices. Alongside the dataset, we release a reference model built upon a 
 bank of parallel U-Nets that separates five stems (kick drum, snare, tom-toms, hi-hat, cymbals) from a stereo drum mixture through spectro-temporal soft masking [@mezza2023]. 
-Such model is meant to serve as a baseline for future research and might complement existing music demixing models.
+Such a model is meant to serve as a baseline for future research and might complement existing music demixing models.
