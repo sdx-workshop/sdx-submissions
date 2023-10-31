@@ -1,5 +1,5 @@
 ---
-title: 'Separation using ChatGPT'
+title: 'Multi-Resolution and Noise Robust Methods for Audio Source Separation'
 tags:
   - source separation
   - u-net
