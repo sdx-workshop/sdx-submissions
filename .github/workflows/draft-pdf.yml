@@ -8,12 +8,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build draft PDF
-        uses: sdx-workshop/openjournals-draft-action@master
+        uses: docker://faroit/inara:latest
         with:
-          journal: sdx
+          # journal: sdx
           # This should be the path to the paper within your repo.
           # paper-path: paper.md
           args: '-k paper/paper.md'
+        env:
+          GIT_SHA: $GITHUB_SHA
+          JOURNAL: sdx
       - name: Upload
         uses: actions/upload-artifact@v2
         with:
