@@ -13,7 +13,7 @@ jobs:
           # journal: sdx
           # This should be the path to the paper within your repo.
           # paper-path: paper.md
-          args: paper.md
+          args: -o preprint paper.md
         env:
           GIT_SHA: $GITHUB_SHA
           JOURNAL: sdx
