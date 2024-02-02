@@ -1,33 +1,43 @@
 ---
-title: 'Separation using ChatGPT'
+title: 'StemGMD: A Large-Scale Multi-Kit Audio Dataset for Deep Drums Demixing'
 tags:
+  - drums
+  - demixing
   - separation
+  - dataset
   - u-net
 authors:
-  - name: Fabian-Robert Stoter^[co-first author] # note this makes a footnote saying 'co-first author'
-    orcid: 0000-0003-0872-7098
-    affiliation: "1, 2" # (Multiple affiliations must be quoted)
-  - name: Author Without ORCID^[co-first author] # note this makes a footnote saying 'co-first author'
-    affiliation: 2
-  - name: Author with no affiliation^[corresponding author]
-    affiliation: 3
+  - name: Alessandro Ilic Mezza^[corresponding author]
+    orcid: 0000-0002-9438-3190
+    affiliation: 1
+  - name: Riccardo Giampiccolo
+    orcid: 0000-0001-6144-8288
+    affiliation: 1
+  - name: Alberto Bernardini
+    orcid: 0000-0001-7973-0134
+    affiliation: 1
+  - name: Augusto Sarti
+    orcid: 0000-0002-5803-1702
+    affiliation: 1
 affiliations:
- - name: Audioshake
+ - name: Image and Sound Processing Lab, Politecnico di Milano 
    index: 1
- - name: Institution Name
-   index: 2
- - name: Independent Researcher
-   index: 3
-date: 10 September 2023
+date: 28 September 2023
 bibliography: paper.bib
-arxiv-doi: 10.21105/joss.01667
 ---
 
 # Abstract
 
-The abstract should be around 250 words long as usual, and should be provided
-for submissions of all categories: posters, long talks and discussions.
-
-* Please briefly describe the particular points your submission focuses on and/or the
-problems it aims to solve.
-* For all categories except discussions, please also briefly summarize the contributions.
+In music demixing, drums is conventionally treated as a single stem despite being an ensemble of percussion 
+instruments in itself. At the same time, the availability of publicly-available datasets specifically 
+tailored for drums demixing has been severely lacking. To address this gap, we present StemGMD [@stemgmd], the first large-scale 
+multi-kit audio dataset of isolated single-instrument drum stems. Each audio clip in StemGMD is synthesized from MIDI 
+recordings of expressive drums performances taken from Magenta's Groove Midi Dataset (GMD) using ten real-sounding sample libraries shipped with Logic Pro X.
+Totaling over 1224 hours, StemGMD is the largest dataset of drums to date and the first to comprise isolated 
+audio clips for every instrument in a canonical nine-piece acoustic drum kit, i.e., kick drum, snare, high tom, mid-low tom, floor tom, open hi-hat, closed hi-hat, ride cymbal, and crash cymbal.
+StemGMD also contains single hits for each drum piece at varying velocities, and is inherently aligned with the MIDI 
+content and metadata found in GMD, allowing for a broad range of applications such as Automatic Drum Transcription. 
+Furthermore, having access to isolated audio stems enables a vast array of diverse data augmentation methods that draw 
+inspiration from common music production practices. Alongside the dataset, we release a reference model built upon a 
+bank of parallel U-Nets that separates five stems (kick drum, snare, tom-toms, hi-hat, cymbals) from a stereo drum mixture through spectro-temporal soft masking [@mezza2023]. 
+Such a model is meant to serve as a baseline for future research and might complement existing music demixing models.
